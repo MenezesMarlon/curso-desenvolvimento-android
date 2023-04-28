@@ -10,7 +10,7 @@
         android:id="@+id/textEscolhaApp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
         android:text="Escolha do App"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,8 +19,8 @@
 
     <ImageView
         android:id="@+id/imageEscolhaApp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textEscolhaApp"
@@ -43,29 +43,44 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="32dp"
+        android:onClick="selecionadoPedra"
         android:src="@drawable/pedra"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/buttonPapel"
-        app:layout_constraintTop_toBottomOf="@id/textSuaEscolha"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textSuaEscolha" />
+
     <ImageView
         android:id="@+id/buttonPapel"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="32dp"
+        android:onClick="selecionadoPapel"
         android:src="@drawable/papel"
-        app:layout_constraintStart_toEndOf="@id/buttonPedra"
         app:layout_constraintEnd_toStartOf="@id/buttonTesoura"
-        app:layout_constraintTop_toBottomOf="@id/textSuaEscolha"/>
+        app:layout_constraintStart_toEndOf="@id/buttonPedra"
+        app:layout_constraintTop_toBottomOf="@id/textSuaEscolha" />
 
     <ImageView
         android:id="@+id/buttonTesoura"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="32dp"
+        android:onClick="selecionadoTesoura"
         android:src="@drawable/tesoura"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/buttonPapel"
         app:layout_constraintTop_toBottomOf="@id/textSuaEscolha" />
+
+    <TextView
+        android:id="@+id/textOpcaoEscolhida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@id/buttonPapel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="18dp"
+        android:text=""/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
