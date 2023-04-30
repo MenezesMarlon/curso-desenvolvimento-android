@@ -23,13 +23,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        inicializaViews();
+    }
+
+    public void inicializaViews(){
         imagePadrao = findViewById(R.id.imagePadrao);
         textOpcaoEscolhida = findViewById(R.id.textOpcaoEscolhida);
         textPontosVoce = findViewById(R.id.textPontosVoce);
         textPontosMaquina = findViewById(R.id.textPontosMaquina);
         textPontosEmpate = findViewById(R.id.textPontosEmpate);
-    }
 
+    }
     public void opcaoPedra(View view) {
         jogar("Pedra");
     }
