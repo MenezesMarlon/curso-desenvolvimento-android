@@ -86,4 +86,6 @@ public class MainActivity extends AppCompatActivity {
             textPontosMaquina.setText(String.valueOf(derrotas));
         }
     }
+
+
 }
