@@ -1,6 +1,5 @@
 package com.menezesmarlon.jokenpoapp;
 
-import androidx.annotation.DrawableRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -8,17 +7,22 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
     }
+
+    int vitorias = 0;
+    int derrotas = 0;
+    int empates = 0;
+
 
     public void opcaoPedra(View view) {
         this.opcaoEscolhida("Pedra");
@@ -32,16 +36,22 @@ public class MainActivity extends AppCompatActivity {
         this.opcaoEscolhida("Tesoura");
     }
 
-    public void opcaoEscolhida(String opcao) {
-        TextView textOpcaoEscolhida = findViewById(R.id.textOpcaoEscolhida);
-        textOpcaoEscolhida.setText("Você Escolheu: " + opcao);
+    public void opcaoEscolhida(String escolhaJogador) {
+
         ImageView imagePadrao = findViewById(R.id.imagePadrao);
+        TextView textOpcaoEscolhida = findViewById(R.id.textOpcaoEscolhida);
+        TextView textPontosVoce = findViewById(R.id.textPontosVoce);
+        TextView textPontosMaquina = findViewById(R.id.textPontosMaquina);
+        TextView textPontosEmpate = findViewById(R.id.textPontosEmpate);
+
+
+        textOpcaoEscolhida.setText("Você Escolheu: " + escolhaJogador);
 
         int numero = new Random().nextInt(3);
         String[] opcoes = {"Pedra", "Papel", "Tesoura"};
-        String opcaoApp = opcoes[numero];
+        String escolhaApp = opcoes[numero];
 
-        switch (opcaoApp) {
+        switch (escolhaApp) {
             case "Pedra":
                 imagePadrao.setImageResource(R.drawable.pedra);
 
@@ -56,5 +66,24 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
 
+
+        if (escolhaJogador.equals("Pedra") && escolhaApp.equals("Tesoura")
+                || escolhaJogador.equals("Papel") && escolhaApp.equals("Pedra")
+                || escolhaJogador.equals("Tesoura") && escolhaApp.equals("Papel")) {
+
+            vitorias++;
+            textPontosVoce.setText(String.valueOf(vitorias));
+
+        } else if (escolhaJogador.equals("Pedra") && escolhaApp.equals("Pedra")
+                || escolhaJogador.equals("Papel") && escolhaApp.equals("Papel")
+                || escolhaJogador.equals("Tesoura") && escolhaApp.equals("Tesoura")) {
+
+            empates++;
+            textPontosEmpate.setText(String.valueOf(empates));
+
+        } else {
+            derrotas++;
+            textPontosMaquina.setText(String.valueOf(derrotas));
+        }
     }
 }
