@@ -93,6 +93,18 @@
         app:layout_constraintTop_toBottomOf="@id/textOpcaoEscolhida" />
 
     <TextView
+        android:id="@+id/textEmpate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Empates"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/imagePapel"
+        app:layout_constraintStart_toStartOf="@id/imagePapel"
+        app:layout_constraintTop_toBottomOf="@id/textOpcaoEscolhida" />
+
+
+    <TextView
         android:id="@+id/textMaquina"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -113,6 +125,17 @@
         app:layout_constraintEnd_toEndOf="@+id/textVoce"
         app:layout_constraintStart_toStartOf="@+id/textVoce"
         app:layout_constraintTop_toBottomOf="@id/textVoce" />
+
+    <TextView
+        android:id="@+id/textPontosEmpate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="0"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/textEmpate"
+        app:layout_constraintStart_toStartOf="@+id/textEmpate"
+        app:layout_constraintTop_toBottomOf="@id/textEmpate" />
 
     <TextView
         android:id="@+id/textPontosMaquina"
