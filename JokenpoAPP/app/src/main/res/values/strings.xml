@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">JokenpoAPP</string>
+    <string name="escolha_jogador">Você Escolheu: %s</string>
 </resources>
