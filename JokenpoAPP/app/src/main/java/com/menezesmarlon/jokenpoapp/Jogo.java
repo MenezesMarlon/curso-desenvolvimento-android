@@ -1,10 +1,11 @@
 package com.menezesmarlon.jokenpoapp;
 
-
 public class Jogo {
     int vitorias = 0;
     int derrotas = 0;
     int empates = 0;
+
+
 
     public void jogar(String escolhaJogador, String escolhaApp) {
 
@@ -25,6 +26,7 @@ public class Jogo {
         }
     }
 
+
     public int getVitorias() {
         return vitorias;
     }
@@ -36,5 +38,18 @@ public class Jogo {
     public int getEmpates() {
         return empates;
     }
+
+    public void setVitorias(int vitorias){
+        this.vitorias = vitorias;
+    }
+
+    public void setDerrotas(int derrotas){
+        this.derrotas = derrotas;
+    }
+    public void setEmpates(int empates){
+        this.empates = empates;
+    }
+
+
 
 }

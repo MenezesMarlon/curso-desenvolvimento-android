@@ -12,12 +12,18 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     Jogo jogo = new Jogo();
+    ImageView imagePadrao;
+    TextView textOpcaoEscolhida;
+    TextView textPontosVoce;
+    TextView textPontosMaquina;
+    TextView textPontosEmpate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
 
     public void opcaoPedra(View view) {
         jogar("Pedra");
@@ -31,15 +37,28 @@ public class MainActivity extends AppCompatActivity {
         jogar("Tesoura");
     }
 
+    public void zerarPontuação(View view) {
+        textPontosVoce = findViewById(R.id.textPontosVoce);
+        textPontosMaquina = findViewById(R.id.textPontosMaquina);
+        textPontosEmpate = findViewById(R.id.textPontosEmpate);
+        jogo.setVitorias(0);
+        jogo.setDerrotas(0);
+        jogo.setEmpates(0);
+        textPontosVoce.setText(String.valueOf(jogo.getVitorias()));
+        textPontosMaquina.setText(String.valueOf(jogo.getDerrotas()));
+        textPontosEmpate.setText(String.valueOf(jogo.getEmpates()));
+    }
+
+
     private void jogar(String escolhaJogador) {
-        ImageView imagePadrao = findViewById(R.id.imagePadrao);
-        TextView textOpcaoEscolhida = findViewById(R.id.textOpcaoEscolhida);
-        TextView textPontosVoce = findViewById(R.id.textPontosVoce);
-        TextView textPontosMaquina = findViewById(R.id.textPontosMaquina);
-        TextView textPontosEmpate = findViewById(R.id.textPontosEmpate);
+        imagePadrao = findViewById(R.id.imagePadrao);
+        textOpcaoEscolhida = findViewById(R.id.textOpcaoEscolhida);
+        textPontosVoce = findViewById(R.id.textPontosVoce);
+        textPontosMaquina = findViewById(R.id.textPontosMaquina);
+        textPontosEmpate = findViewById(R.id.textPontosEmpate);
 
 
-        textOpcaoEscolhida.setText("Você Escolheu: " + escolhaJogador);
+        textOpcaoEscolhida.setText("Você escolher: " + escolhaJogador);
 
         int numero = new Random().nextInt(3);
         String[] opcoes = {"Pedra", "Papel", "Tesoura"};
@@ -56,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
                 imagePadrao.setImageResource(R.drawable.tesoura);
                 break;
         }
-
 
         jogo.jogar(escolhaJogador, escolhaApp);
         textPontosVoce.setText(String.valueOf(jogo.getVitorias()));
