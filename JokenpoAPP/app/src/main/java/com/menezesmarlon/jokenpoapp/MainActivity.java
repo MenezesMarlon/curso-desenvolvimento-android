@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         TextView textPontosMaquina = findViewById(R.id.textPontosMaquina);
         TextView textPontosEmpate = findViewById(R.id.textPontosEmpate);
 
+
         textOpcaoEscolhida.setText("Você Escolheu: " + escolhaJogador);
 
         int numero = new Random().nextInt(3);
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 imagePadrao.setImageResource(R.drawable.tesoura);
                 break;
         }
+
 
         jogo.jogar(escolhaJogador, escolhaApp);
         textPontosVoce.setText(String.valueOf(jogo.getVitorias()));

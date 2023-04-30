@@ -1,9 +1,10 @@
 package com.menezesmarlon.jokenpoapp;
 
+
 public class Jogo {
-    private int vitorias = 0;
-    private int derrotas = 0;
-    private int empates = 0;
+    int vitorias = 0;
+    int derrotas = 0;
+    int empates = 0;
 
     public void jogar(String escolhaJogador, String escolhaApp) {
 
