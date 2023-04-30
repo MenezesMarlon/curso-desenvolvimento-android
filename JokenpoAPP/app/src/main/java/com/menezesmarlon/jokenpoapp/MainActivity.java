@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         textPontosEmpate = findViewById(R.id.textPontosEmpate);
 
 
-        textOpcaoEscolhida.setText("Você escolher: " + escolhaJogador);
+        textOpcaoEscolhida.setText("Você escolheu: " + escolhaJogador);
 
         int numero = new Random().nextInt(3);
         String[] opcoes = {"Pedra", "Papel", "Tesoura"};
