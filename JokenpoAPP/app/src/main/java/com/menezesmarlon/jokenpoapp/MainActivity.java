@@ -22,8 +22,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
+        imagePadrao = findViewById(R.id.imagePadrao);
+        textOpcaoEscolhida = findViewById(R.id.textOpcaoEscolhida);
+        textPontosVoce = findViewById(R.id.textPontosVoce);
+        textPontosMaquina = findViewById(R.id.textPontosMaquina);
+        textPontosEmpate = findViewById(R.id.textPontosEmpate);
+    }
 
     public void opcaoPedra(View view) {
         jogar("Pedra");
@@ -38,9 +43,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void zerarPontuação(View view) {
-        textPontosVoce = findViewById(R.id.textPontosVoce);
-        textPontosMaquina = findViewById(R.id.textPontosMaquina);
-        textPontosEmpate = findViewById(R.id.textPontosEmpate);
         jogo.setVitorias(0);
         jogo.setDerrotas(0);
         jogo.setEmpates(0);
