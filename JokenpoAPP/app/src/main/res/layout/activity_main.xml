@@ -82,25 +82,48 @@
         app:layout_constraintTop_toBottomOf="@id/imagePapel" />
 
     <TextView
+        android:id="@+id/textVoce"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="40dp"
         android:text="Você"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@id/imagePedra"
         app:layout_constraintStart_toStartOf="@id/imagePedra"
-        app:layout_constraintTop_toBottomOf="@id/textOpcaoEscolhida"
-        />
+        app:layout_constraintTop_toBottomOf="@id/textOpcaoEscolhida" />
 
     <TextView
+        android:id="@+id/textMaquina"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="40dp"
         android:text="Maquina"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@id/imageTesoura"
         app:layout_constraintStart_toStartOf="@id/imageTesoura"
         app:layout_constraintTop_toBottomOf="@id/textOpcaoEscolhida" />
+
+    <TextView
+        android:id="@+id/textPontosVoce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="0"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/textVoce"
+        app:layout_constraintStart_toStartOf="@+id/textVoce"
+        app:layout_constraintTop_toBottomOf="@id/textVoce" />
+
+    <TextView
+        android:id="@+id/textPontosMaquina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="0"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/textMaquina"
+        app:layout_constraintStart_toStartOf="@+id/textMaquina"
+        app:layout_constraintTop_toBottomOf="@id/textMaquina" />
 
     <Button
         android:id="@+id/buttonZerar"
