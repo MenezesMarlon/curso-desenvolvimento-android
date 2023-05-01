@@ -5,6 +5,9 @@ plugins {
 android {
     namespace 'com.menezesmarlon.componentesbasicosinterface'
     compileSdk 33
+    buildFeatures {
+        viewBinding true
+    }
 
     defaultConfig {
         applicationId "com.menezesmarlon.componentesbasicosinterface"
