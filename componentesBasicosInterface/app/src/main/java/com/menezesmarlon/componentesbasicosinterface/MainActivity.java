@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Toast;
-
 import com.menezesmarlon.componentesbasicosinterface.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -34,15 +32,15 @@ public class MainActivity extends AppCompatActivity {
         String email = binding.editEmail.getText().toString();
 
         if (TextUtils.isEmpty(name)) {
-            binding.editName.setError("Please enter a name");
+            binding.editName.setError("Por favor, insira um nome");
             return;
         }
 
         if (TextUtils.isEmpty(email)) {
-            binding.editEmail.setError("Please enter an email address");
+            binding.editEmail.setError("Por favor, insira um email");
             return;
         }
-        
+
 
         binding.textName.setText(name);
         binding.textEmail.setText(email);
