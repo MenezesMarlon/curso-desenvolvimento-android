@@ -5,6 +5,9 @@ plugins {
 android {
     namespace 'com.menezesmarlon.jokenpoapp'
     compileSdk 33
+    viewBinding {
+        enabled = true
+    }
 
     defaultConfig {
         applicationId "com.menezesmarlon.jokenpoapp"

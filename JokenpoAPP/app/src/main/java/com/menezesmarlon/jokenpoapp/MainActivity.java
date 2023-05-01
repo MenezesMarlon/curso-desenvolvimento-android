@@ -1,39 +1,28 @@
 package com.menezesmarlon.jokenpoapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.menezesmarlon.jokenpoapp.databinding.ActivityMainBinding;
 
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
+    private ActivityMainBinding binding;
 
     Jogo jogo = new Jogo();
-    ImageView imagePadrao;
-    TextView textOpcaoEscolhida;
-    TextView textPontosVoce;
-    TextView textPontosMaquina;
-    TextView textPontosEmpate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        inicializaViews();
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
     }
 
-    public void inicializaViews(){
-        imagePadrao = findViewById(R.id.imagePadrao);
-        textOpcaoEscolhida = findViewById(R.id.textOpcaoEscolhida);
-        textPontosVoce = findViewById(R.id.textPontosVoce);
-        textPontosMaquina = findViewById(R.id.textPontosMaquina);
-        textPontosEmpate = findViewById(R.id.textPontosEmpate);
 
-    }
     public void opcaoPedra(View view) {
         jogar("Pedra");
     }
@@ -46,25 +35,21 @@ public class MainActivity extends AppCompatActivity {
         jogar("Tesoura");
     }
 
-    public void zerarPontuação(View view) {
-        jogo.setVitorias(0);
-        jogo.setDerrotas(0);
-        jogo.setEmpates(0);
-        textPontosVoce.setText(String.valueOf(jogo.getVitorias()));
-        textPontosMaquina.setText(String.valueOf(jogo.getDerrotas()));
-        textPontosEmpate.setText(String.valueOf(jogo.getEmpates()));
+    public void clearCount(View view) {
+        jogo.clearCounts();
+        updateViews();
+    }
+
+    private void updateViews() {
+        binding.textPontosVoce.setText(String.valueOf(jogo.getVitorias()));
+        binding.textPontosMaquina.setText(String.valueOf(jogo.getDerrotas()));
+        binding.textPontosEmpate.setText(String.valueOf(jogo.getEmpates()));
     }
 
 
+
     private void jogar(String escolhaJogador) {
-        imagePadrao = findViewById(R.id.imagePadrao);
-        textOpcaoEscolhida = findViewById(R.id.textOpcaoEscolhida);
-        textPontosVoce = findViewById(R.id.textPontosVoce);
-        textPontosMaquina = findViewById(R.id.textPontosMaquina);
-        textPontosEmpate = findViewById(R.id.textPontosEmpate);
-
-
-        textOpcaoEscolhida.setText("Você escolheu: " + escolhaJogador);
+        binding.textOpcaoEscolhida.setText("Você escolheu: " + escolhaJogador);
 
         int numero = new Random().nextInt(3);
         String[] opcoes = {"Pedra", "Papel", "Tesoura"};
@@ -72,19 +57,19 @@ public class MainActivity extends AppCompatActivity {
 
         switch (escolhaApp) {
             case "Pedra":
-                imagePadrao.setImageResource(R.drawable.pedra);
+                binding.imagePadrao.setImageResource(R.drawable.pedra);
                 break;
             case "Papel":
-                imagePadrao.setImageResource(R.drawable.papel);
+                binding.imagePadrao.setImageResource(R.drawable.papel);
                 break;
             case "Tesoura":
-                imagePadrao.setImageResource(R.drawable.tesoura);
+                binding.imagePadrao.setImageResource(R.drawable.tesoura);
                 break;
         }
 
         jogo.jogar(escolhaJogador, escolhaApp);
-        textPontosVoce.setText(String.valueOf(jogo.getVitorias()));
-        textPontosMaquina.setText(String.valueOf(jogo.getDerrotas()));
-        textPontosEmpate.setText(String.valueOf(jogo.getEmpates()));
+        binding.textPontosVoce.setText(String.valueOf(jogo.getVitorias()));
+        binding.textPontosMaquina.setText(String.valueOf(jogo.getDerrotas()));
+        binding.textPontosEmpate.setText(String.valueOf(jogo.getEmpates()));
     }
 }
