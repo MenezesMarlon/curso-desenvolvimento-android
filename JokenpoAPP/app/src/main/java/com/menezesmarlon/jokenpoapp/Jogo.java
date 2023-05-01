@@ -6,9 +6,8 @@ public class Jogo {
     int empates = 0;
 
 
-
     public void jogar(String escolhaJogador, String escolhaApp) {
-
+        
         if (escolhaJogador.equals("Pedra") && escolhaApp.equals("Tesoura")
                 || escolhaJogador.equals("Papel") && escolhaApp.equals("Pedra")
                 || escolhaJogador.equals("Tesoura") && escolhaApp.equals("Papel")) {
@@ -26,6 +25,12 @@ public class Jogo {
         }
     }
 
+    public void clearCounts() {
+        vitorias = 0;
+        derrotas = 0;
+        empates = 0;
+    }
+
 
     public int getVitorias() {
         return vitorias;
@@ -39,17 +44,17 @@ public class Jogo {
         return empates;
     }
 
-    public void setVitorias(int vitorias){
+    public void setVitorias(int vitorias) {
         this.vitorias = vitorias;
     }
 
-    public void setDerrotas(int derrotas){
+    public void setDerrotas(int derrotas) {
         this.derrotas = derrotas;
     }
-    public void setEmpates(int empates){
+
+    public void setEmpates(int empates) {
         this.empates = empates;
     }
-
 
 
 }

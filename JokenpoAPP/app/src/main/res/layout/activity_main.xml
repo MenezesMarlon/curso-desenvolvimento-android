@@ -155,7 +155,7 @@
         android:layout_marginHorizontal="30dp"
         android:layout_marginBottom="10dp"
         android:text="Zerar"
-        android:onClick="zerarPontuação"
+        android:onClick="clearCount"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
