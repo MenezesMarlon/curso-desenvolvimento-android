@@ -13,7 +13,6 @@ import com.menezesmarlon.listview.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
-    private ListView listLocais;
     private String[] itens = {
             "Angra dos Reis", "Caldas Novas",
             "Campos do Jordão", "Costa do Sauípe",
@@ -27,24 +26,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        listarLocais();
 
     }
 
     public void listarLocais() {
-        listLocais = findViewById(R.id.listLocais);
-
         ArrayAdapter<String> adaptador = new ArrayAdapter<String>(
                 getApplicationContext(),
                 android.R.layout.simple_list_item_1,
                 android.R.id.text1,
                 itens
         );
-        listLocais.setAdapter(adaptador);
+        binding.listLocais.setAdapter(adaptador);
 
-        listLocais.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        binding.listLocais.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String valueSelected = listLocais.getItemAtPosition(position).toString();
+                String valueSelected = binding.listLocais.getItemAtPosition(position).toString();
                 Toast.makeText(getApplicationContext(), valueSelected, Toast.LENGTH_SHORT).show();
             }
         });
