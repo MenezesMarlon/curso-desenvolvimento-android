@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String valueSelected = listLocais.getItemAtPosition(position).toString();
-                Toast.makeText(MainActivity.this, valueSelected, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), valueSelected, Toast.LENGTH_SHORT).show();
             }
         });
     }
