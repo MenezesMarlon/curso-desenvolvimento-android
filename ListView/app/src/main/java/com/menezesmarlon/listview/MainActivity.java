@@ -26,11 +26,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        listarLocais();
+        inicializarListView();
+
 
     }
 
-    public void listarLocais() {
+    public void inicializarListView() {
+        criarAdaptador();
+        definirListener();
+    }
+
+    public void criarAdaptador() {
         ArrayAdapter<String> adaptador = new ArrayAdapter<String>(
                 getApplicationContext(),
                 android.R.layout.simple_list_item_1,
@@ -38,7 +44,9 @@ public class MainActivity extends AppCompatActivity {
                 itens
         );
         binding.listLocais.setAdapter(adaptador);
+    }
 
+    public void definirListener() {
         binding.listLocais.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -47,5 +55,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
 }
