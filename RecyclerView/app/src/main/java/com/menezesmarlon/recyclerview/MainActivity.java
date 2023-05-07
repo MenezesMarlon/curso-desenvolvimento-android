@@ -22,5 +22,6 @@ public class MainActivity extends AppCompatActivity {
     public void configurarReciclerView(){
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         binding.recyclerView.setLayoutManager( layoutManager );
+        binding.recyclerView.setHasFixedSize(true);
     }
 }
