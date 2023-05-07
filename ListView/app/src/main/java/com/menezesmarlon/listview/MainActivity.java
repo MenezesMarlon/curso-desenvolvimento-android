@@ -9,8 +9,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import com.menezesmarlon.listview.databinding.ActivityMainBinding;
 
+public class MainActivity extends AppCompatActivity {
+    private ActivityMainBinding binding;
     private ListView listLocais;
     private String[] itens = {
             "Angra dos Reis", "Caldas Novas",
@@ -23,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        listarLocais();
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
     }
 
