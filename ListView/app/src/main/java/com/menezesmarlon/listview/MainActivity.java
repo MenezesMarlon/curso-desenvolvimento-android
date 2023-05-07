@@ -3,8 +3,11 @@ package com.menezesmarlon.listview;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,12 +24,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         listarLocais();
 
     }
 
-    public void listarLocais(){
+    public void listarLocais() {
         listLocais = findViewById(R.id.listLocais);
 
         ArrayAdapter<String> adaptador = new ArrayAdapter<String>(
@@ -35,8 +37,15 @@ public class MainActivity extends AppCompatActivity {
                 android.R.id.text1,
                 itens
         );
-
         listLocais.setAdapter(adaptador);
+
+        listLocais.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String valueSelected = listLocais.getItemAtPosition(position).toString();
+                Toast.makeText(MainActivity.this, valueSelected, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }
