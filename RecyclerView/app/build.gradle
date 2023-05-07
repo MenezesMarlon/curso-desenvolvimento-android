@@ -5,6 +5,10 @@ plugins {
 android {
     namespace 'com.menezesmarlon.recyclerview'
     compileSdk 33
+    viewBinding {
+        enable = true
+    }
+
 
     defaultConfig {
         applicationId "com.menezesmarlon.recyclerview"
