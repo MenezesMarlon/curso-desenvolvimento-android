@@ -1,6 +1,8 @@
 package com.menezesmarlon.recyclerview;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
@@ -14,6 +16,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        configurarReciclerView();
     }
 
+    public void configurarReciclerView(){
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        binding.recyclerView.setLayoutManager( layoutManager );
+    }
 }
